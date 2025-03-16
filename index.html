@@ -625,15 +625,17 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Create overlay element for sidebar
-    const overlay = document.createElement('div');
-    overlay.className = 'sidebar-overlay';
-    document.body.appendChild(overlay);
     
-    // Add close button to navbar collapse
-    const closeBtn = document.createElement('span');
-    closeBtn.className = 'sidebar-close';
-    closeBtn.innerHTML = '&times;';
-    document.getElementById('navbarCollapse').prepend(closeBtn);
+    const overlay = document.querySelector('.overlay');
+const toggleButton = document.querySelector('.toggle-overlay');
+
+toggleButton.addEventListener('click', () => {
+  if (overlay.style.pointerEvents === 'none') {
+    overlay.style.pointerEvents = 'auto';
+  } else {
+    overlay.style.pointerEvents = 'none';
+  }
+});
     
     // Function to close sidebar
     function closeSidebar() {
